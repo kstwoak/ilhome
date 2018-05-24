@@ -1,17 +1,16 @@
 package main
 
 import (
-	_ "ilhome/routers"
 	"github.com/astaxie/beego"
-	"net/http"
 	"github.com/astaxie/beego/context"
+	_ "ilhome/routers"
+	_ "ilhome/models"
 	"strings"
+	"net/http"
 )
 
 func main() {
-
 	ignoreStaticPath()
-
 	beego.Run()
 }
 
@@ -29,6 +28,5 @@ func TransparentStatic(ctx *context.Context) {
 		return
 	}
 	///index.html --->/static/html/index.html
-
 	http.ServeFile(ctx.ResponseWriter, ctx.Request, "static/html/"+ctx.Request.URL.Path)
 }

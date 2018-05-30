@@ -7,10 +7,18 @@ import (
 	_ "ilhome/models"
 	"strings"
 	"net/http"
+	//"ilhome/models"
 )
 
 func main() {
 	ignoreStaticPath()
+
+	////测试fdfs api
+	//_,_,err :=models.Fdfs_upload_filename("./lbjn.jpg")
+	//if err !=nil {
+	//	beego.Info(err)
+	//}
+	beego.SetStaticPath("/group1/M00","fastdfs/storage_data/data")
 	beego.Run()
 }
 
